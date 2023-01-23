@@ -37,6 +37,13 @@ function reducer(draftedState,action){
        })
       break;
 
+      case ACTIONS.sort:
+         draftedState.comments.sort(function(a,b){
+            return  b.score - a.score || b.user.username.localeCompare(a.user.username)
+          })
+      break;
+
+
 
       case ACTIONS.voteContent:
          payload.contentType === "comment" ? draftedState.comments.filter(comment => {
@@ -393,6 +400,10 @@ function CommentContext(props){
 
    useEffect(() => {
       localStorage.setItem('state',JSON.stringify(state))
+
+      dispatch({
+         type:ACTIONS.sort
+      })
    },[state])
 
 
