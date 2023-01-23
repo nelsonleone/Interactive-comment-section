@@ -18,18 +18,23 @@ function reducer(draftedState,action){
       case ACTIONS.updateState:
          draftedState.comments.map(comment => {
             comment.currentUserVoteType = null
-            comment.score = comment.score + Math.floor(Math.random() * 2)
+            comment.score = comment.score + Math.floor(Math.random() * 3)
          })
 
         draftedState.comments.map(comment => {
          return comment.replies.map(reply => {
             reply.currentUserVoteType = null
-            reply.score = reply.score + Math.floor(Math.random() * 2)
+            reply.score = reply.score + Math.floor(Math.random() * 3)
          })
        })
 
        draftedState.deleteModalShow =  false
        draftedState.pendingDeleteID = null
+
+
+       draftedState.comments.sort(function(a,b){
+         return  b.score - a.score || b.user.username.localeCompare(a.user.username)
+       })
       break;
 
 
@@ -384,7 +389,6 @@ function CommentContext(props){
       dispatch({
          type:ACTIONS.updateState
       })
-
    },[])
 
    useEffect(() => {
