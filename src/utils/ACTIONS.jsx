@@ -12,7 +12,8 @@ const ACTIONS = {
    onchange:"ONCHANGE_COMMENT_INPUT",
    reply: "REPLY",
    onchangeReply: "ONCHANGE_REPLY_INPUT",
-   postNestedReply: "POST_NESTED_REPLY"
+   postNestedReply: "POST_NESTED_REPLY",
+   sort: "SORT"
 }
 
 export {ACTIONS}
