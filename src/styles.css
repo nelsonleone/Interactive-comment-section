@@ -378,8 +378,7 @@ textarea{
 @media (min-width:55rem) {
    .header-section,
    .content-container{
-      max-width:45%;
-
+      width:45%;
    }
    .comment{
       min-height:7.4rem;
