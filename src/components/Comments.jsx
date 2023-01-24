@@ -43,18 +43,18 @@ export default  function Comments(){
             <div className="vote-btn">
                 <p className="sr-only" id="upvote">Upvote This Comment</p>
                 <button 
-                  aria-labelledby="upvote" 
-                  aria-controls="vote"
+                  aria-labelledby=`upvote${comment.id}` 
+                  aria-controls=`vote${comment.id}`
                   onClick={()  => voteContent("comment",comment.user.username,comment.id,"upvote")}
                   >
                   <FaPlus />
                 </button>
-                <span className="vote-count" id="vote">
+                <span className="vote-count" id=`vote${comment.id}`>
                   {comment.score}
                 </span>
-                <p className="sr-only" id="downvote">Down Vote This Comment</p>
+                <p className="sr-only" id=`downvote${comment.id}`>Down Vote This Comment</p>
                 <button 
-                aria-labelledby="downvote" 
+                aria-labelledby=`downvote${comment.id}` 
                 aria-controls="vote"
                 onClick={()  => voteContent("comment",comment.user.username,comment.id,"downvote")}
                 >
