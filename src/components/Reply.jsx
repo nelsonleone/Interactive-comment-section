@@ -37,7 +37,7 @@ export default function Reply({reply,commentID}){
                <span className="sr-only" id={`upvote${reply.id}`}>Upvote This Comment</span>
                <FaPlus />
             </button>
-            <span className="vote-count" id={`vote${reply.id}`}">
+            <span className="vote-count" id={`vote${reply.id}`}>
                {reply.score}
             </span>
             <button 
