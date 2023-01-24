@@ -34,7 +34,7 @@ export default function Reply({reply,commentID}){
               aria-controls={`vote${reply.id}`}
               onClick={() => voteContent("reply",reply.user.username,reply.id,"upvote")}
               >
-               <span className="sr-only" id="upvote">Upvote This Comment</span>
+               <span className="sr-only" id={`upvote${reply.id}`}>Upvote This Comment</span>
                <FaPlus />
             </button>
             <span className="vote-count" id={`vote${reply.id}`}">
@@ -45,7 +45,7 @@ export default function Reply({reply,commentID}){
               aria-controls={`vote${reply.id}`}
               onClick={() => voteContent("reply",reply.user.username,reply.id,"downvote")}
               >
-               <span className="sr-only" id="downvote">Down Vote This Comment</span>
+               <span className="sr-only" id={`downvote${reply.id}`}>Down Vote This Comment</span>
                <FaMinus />
             </button>
          </div>
