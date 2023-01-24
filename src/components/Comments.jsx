@@ -41,23 +41,23 @@ export default  function Comments(){
         <div key={comment.id}>
           <div className="comment">
             <div className="vote-btn">
+                <p className="sr-only" id="upvote">Upvote This Comment</p>
                 <button 
                   aria-labelledby="upvote" 
                   aria-controls="vote"
                   onClick={()  => voteContent("comment",comment.user.username,comment.id,"upvote")}
                   >
-                  <p className="sr-only" id="upvote">Upvote This Comment</p>
                   <FaPlus />
                 </button>
                 <span className="vote-count" id="vote">
                   {comment.score}
                 </span>
+                <p className="sr-only" id="downvote">Down Vote This Comment</p>
                 <button 
                 aria-labelledby="downvote" 
                 aria-controls="vote"
                 onClick={()  => voteContent("comment",comment.user.username,comment.id,"downvote")}
                 >
-                  <p className="sr-only" id="downvote">Down Vote This Comment</p>
                   <FaMinus />
                 </button>
             </div>
