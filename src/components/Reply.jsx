@@ -30,22 +30,22 @@ export default function Reply({reply,commentID}){
       <div className="reply">
          <div className="vote-btn">
             <button 
-              aria-labelledby="upvote" 
-              aria-controls="vote"
+              aria-labelledby={`upvote${reply.id}`}
+              aria-controls={`vote${reply.id}`}
               onClick={() => voteContent("reply",reply.user.username,reply.id,"upvote")}
               >
-               <p className="sr-only" id="upvote">Upvote This Comment</p>
+               <span className="sr-only" id="upvote">Upvote This Comment</span>
                <FaPlus />
             </button>
-            <span className="vote-count" id="vote">
+            <span className="vote-count" id={`vote${reply.id}`}">
                {reply.score}
             </span>
             <button 
-              aria-labelledby="downvote" 
-              aria-controls="vote"
+              aria-labelledby={`downvote${reply.id}`} 
+              aria-controls={`vote${reply.id}`}
               onClick={() => voteContent("reply",reply.user.username,reply.id,"downvote")}
               >
-               <p className="sr-only" id="downvote">Down Vote This Comment</p>
+               <span className="sr-only" id="downvote">Down Vote This Comment</span>
                <FaMinus />
             </button>
          </div>
