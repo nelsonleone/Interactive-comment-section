@@ -50,11 +50,11 @@ function reducer(draftedState,action){
             if(comment.currentUserVoteType ===  payload.voteType)return;
 
             if(comment.id === payload.id && payload.voteType === "upvote"){
-               comment.currentUserVoteType = payload.voteType
-               return comment.score++
+               comment.currentUserVoteType === "downvote" ? comment.score = comment.score + 2 : comment.score++
+               return comment.currentUserVoteType = payload.voteType
             }else if(comment.id === payload.id && payload.voteType === "downvote"){
-               comment.currentUserVoteType = payload.voteType
-               return comment.score--;
+               comment.currentUserVoteType === "upvote" ? comment.score = comment.score - 2 : comment.score--
+               return comment.currentUserVoteType = payload.voteType
             }else{
                return comment
             }
@@ -65,11 +65,11 @@ function reducer(draftedState,action){
                if(reply.currentUserVoteType === payload.voteType)return;
 
                if(reply.id === payload.id && payload.voteType === "upvote"){
-                  reply.currentUserVoteType = payload.voteType
-                  return reply.score++
+                  reply.currentUserVoteType === "downvote" ? reply.score = reply.score + 2 : reply.score++
+                  return reply.currentUserVoteType = payload.voteType
                }else if(reply.id === payload.id && payload.voteType === "downvote"){
-                  reply.currentUserVoteType = payload.voteType
-                  return reply.score--;
+                  reply.currentUserVoteType === "upvote" ? reply.score = reply.score - 2 : reply.score--
+                  return reply.currentUserVoteType = payload.voteType
                }else{
                   return reply
                }
