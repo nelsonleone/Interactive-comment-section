@@ -11,7 +11,8 @@ This is a CRUD application ran on  localStorage, where users can vote comments a
   - Accesible to AT and responsive for all screen-sizes
   
 # Screenshot
-![image](https://user-images.githubusercontent.com/95982650/223659620-80e6e0f1-c47d-4d87-8552-075d358a9016.png)
+![image](https://user-images.githubusercontent.com/95982650/223660045-a72cf2a6-e27b-4897-9092-6bf191382b05.png)
+
 
 ![image](https://user-images.githubusercontent.com/95982650/223659697-3c78d1ea-e954-400a-bf20-f425f4001b37.png)
 
