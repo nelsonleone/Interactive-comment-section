@@ -9,7 +9,7 @@ const ACTIONS = {
    postReply: "POST_REPLY",
    deleteReply: "DELETE_REPLY",
    hasEdited: "HAS_EDITTED",
-   onchange:"ONCHANGE_COMMENT_INPUT",
+   onchangeComment:"ONCHANGE_COMMENT_INPUT",
    reply: "REPLY",
    onchangeReply: "ONCHANGE_REPLY_INPUT",
    postNestedReply: "POST_NESTED_REPLY",

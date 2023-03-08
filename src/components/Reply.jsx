@@ -4,7 +4,7 @@ import { FaReply } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 import { MdEdit } from "react-icons/md";
 import { Context } from "./CommentContext";
-import { useContext} from "react";
+import { useContext, useRef, useState} from "react";
 
 export default function Reply({reply,commentID}){
    const {
@@ -26,6 +26,14 @@ export default function Reply({reply,commentID}){
       replyValue,
       handlePostReply
    } = useContext(Context)
+
+   const [localReplyEditValue,setLocalReplyEditValue] = useState(edittedValue)
+
+   function handleEditSubmit(){
+      handleEditInputChange(localReplyEditValue)
+      submitEdit(reply.id,"reply",commentID)
+   }
+
    return(
       <div className="reply">
          <div className="vote-btn">
@@ -83,11 +91,11 @@ export default function Reply({reply,commentID}){
             <div className="edit-comment">
                <textarea 
                   type="text" 
-                  value={edittedValue} 
-                  onChange={(e) => handleEditInputChange(e.target.value)}
+                  value={localReplyEditValue}
                   name="editInput"
+                  onChange={(e) => setLocalReplyEditValue(e.target.value)}
                ></textarea>
-               <button  className="update-btn custom-btn" onClick={() => submitEdit(reply.id,"reply",commentID)}>UPDATE</button>
+               <button  className="update-btn custom-btn" onClick={handleEditSubmit}>UPDATE</button>
             </div>
             :
             <p>

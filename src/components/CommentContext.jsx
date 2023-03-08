@@ -95,7 +95,7 @@ function reducer(draftedState,action){
          draftedState.edittedValue =  payload.value;
       break;
 
-      case ACTIONS.onchange:
+      case ACTIONS.onchangeComment:
          draftedState.edittedValue = payload.value
       break;
 
@@ -355,7 +355,7 @@ function CommentContext(props){
    
    function handleEditInputChange(value){
       dispatch({
-         type: "ONCHANGE_COMMENT_INPUT",
+         type: ACTIONS.onchangeComment,
          payload:{value}
       })
    }
@@ -372,6 +372,7 @@ function CommentContext(props){
          }
       })
    }
+   
    function handleReplyInputChange(value){
       dispatch({
          type: ACTIONS.onchangeReply,
