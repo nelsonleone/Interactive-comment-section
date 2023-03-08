@@ -50,11 +50,11 @@ function reducer(draftedState,action){
             if(comment.currentUserVoteType ===  payload.voteType)return;
 
             if(comment.id === payload.id && payload.voteType === "upvote"){
-               comment.currentUserVoteType === "downvote" ? comment.score = comment.score + 2 : comment.score++
-               return comment.currentUserVoteType = payload.voteType
+               comment.currentUserVoteType = payload.voteType
+               return comment.score++
             }else if(comment.id === payload.id && payload.voteType === "downvote"){
-               comment.currentUserVoteType === "upvote" ? comment.score = comment.score - 2 : comment.score--
-               return comment.currentUserVoteType = payload.voteType
+               comment.currentUserVoteType = payload.voteType
+               return comment.score--;
             }else{
                return comment
             }
@@ -65,11 +65,11 @@ function reducer(draftedState,action){
                if(reply.currentUserVoteType === payload.voteType)return;
 
                if(reply.id === payload.id && payload.voteType === "upvote"){
-                  reply.currentUserVoteType === "downvote" ? reply.score = reply.score + 2 : reply.score++
-                  return reply.currentUserVoteType = payload.voteType
+                  reply.currentUserVoteType = payload.voteType
+                  return reply.score++
                }else if(reply.id === payload.id && payload.voteType === "downvote"){
-                  reply.currentUserVoteType === "upvote" ? reply.score = reply.score - 2 : reply.score--
-                  return reply.currentUserVoteType = payload.voteType
+                  reply.currentUserVoteType = payload.voteType
+                  return reply.score--;
                }else{
                   return reply
                }
@@ -123,6 +123,12 @@ function reducer(draftedState,action){
       break;
 
       case ACTIONS.showModal:
+         if(!payload){
+            draftedState.deleteModalShow = !draftedState.deleteModalShow
+            draftedState.pendingDeleteID = null;
+            return;
+         }
+         
          draftedState.deleteModalShow = !draftedState.deleteModalShow
          draftedState.pendingDeleteID = payload.pendingDeleteID
       break;
@@ -249,12 +255,19 @@ function CommentContext(props){
 
 
    function showModal(id){
-      dispatch({
-         type: ACTIONS.showModal,
-         payload:{
-            pendingDeleteID:id
-         }
-      })
+      if(!id){
+         dispatch({
+            type: ACTIONS.showModal,
+         })
+      }
+      else{
+         dispatch({
+            type: ACTIONS.showModal,
+            payload:{
+               pendingDeleteID:id
+            }
+         })
+      }
    }
 
 
