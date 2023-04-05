@@ -124,13 +124,13 @@ function reducer(draftedState,action){
 
       case ACTIONS.showModal:
          if(!payload){
-            draftedState.deleteModalShow = !draftedState.deleteModalShow
+            draftedState.deleteModalShow = false;
             draftedState.pendingDeleteID = null;
             return;
          }
          
-         draftedState.deleteModalShow = !draftedState.deleteModalShow
-         draftedState.pendingDeleteID = payload.pendingDeleteID
+         draftedState.deleteModalShow = true;
+         draftedState.pendingDeleteID = payload.pendingDeleteID;
       break;
 
 
@@ -259,6 +259,7 @@ function CommentContext(props){
          dispatch({
             type: ACTIONS.showModal,
          })
+         return;
       }
       else{
          dispatch({

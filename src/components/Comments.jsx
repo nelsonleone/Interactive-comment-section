@@ -144,7 +144,7 @@ export default  function Comments(){
                       Are you sure you want to delete this comment? This will remove the comment and can't be undone.
                   </p>
                   <div className="modal-actionBtns">
-                      <button onClick={showModal}>NO, CANCEL</button>
+                      <button onClick={() => showModal()}>NO, CANCEL</button>
                       <button onClick={() => handleEditDelete("comment","delete",comment.id)}>YES, DELETE</button>
                   </div>
                 </div>
